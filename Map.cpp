@@ -36,3 +36,22 @@ void Map::hideCursor(bool mk_visible) {
 	info.bVisible = mk_visible;
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &info);
 }
+
+void Map::startLevel(int level_id, Player &player) {
+
+	while (true) {
+		if (player.checkKeyOnce(VK_RIGHT)) {
+			player.coo_j++;
+			level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
+			level.at(level_id)->updateIJ(player.coo_i, player.coo_j - 1, ' ');
+			break;
+		}
+		if (player.checkKey(VK_LEFT)) {
+			player.coo_j--;
+			level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
+			level.at(level_id)->updateIJ(player.coo_i, player.coo_j + 1, ' ');
+			break;
+		}
+	}
+
+}

@@ -40,3 +40,7 @@ void Level::constructLevel(std::string file_name) {
 	// std::cout << "_j" << _j;
 	level.close();
 }
+
+void Level::updateIJ(int i, int j, char c_value) {
+	level_stage[i][j] = c_value;
+}

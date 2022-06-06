@@ -6,6 +6,7 @@
 #include <windows.h>
 
 #include "Level.h"
+#include "Player.h"
 
 
 class Map
@@ -16,6 +17,7 @@ public:
 	void clearMap();
 	void transformLevel(int newLevel);
 	void hideCursor(bool mk_visible);
+	void startLevel(int level_id, Player &player);
 
 
 	// Public Variables
