@@ -44,3 +44,8 @@ void Level::constructLevel(std::string file_name) {
 void Level::updateIJ(int i, int j, char c_value) {
 	level_stage[i][j] = c_value;
 }
+
+bool Level::checkColide(int i, int j) {
+	if (level_stage[i][j] == ' ') return false;
+	else return true;
+}

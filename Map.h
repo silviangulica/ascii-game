@@ -1,8 +1,6 @@
 #pragma once
 #include <vector>
 #include <iostream>
-#include <chrono>
-#include <thread>
 #include <windows.h>
 
 #include "Level.h"
@@ -18,7 +16,7 @@ public:
 	void transformLevel(int newLevel);
 	void hideCursor(bool mk_visible);
 	void startLevel(int level_id, Player &player);
-
+	void sleep(int numeric);
 
 	// Public Variables
 	bool NEED_STOP = false;

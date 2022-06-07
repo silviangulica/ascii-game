@@ -1,7 +1,7 @@
 ﻿  Map.cpp
   Generating code
-  4 of 276 functions ( 1.4%) were compiled, the rest were copied from previous compilation.
+  2 of 228 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  ASCII - GAME.vcxproj -> C:\Users\gulic\OneDrive\Desktop\ascii-game\x64\Release\ASCII - GAME.exe
+  ASCII - GAME.vcxproj -> C:\Users\gulic\Desktop\ascii-game\x64\Release\ASCII - GAME.exe

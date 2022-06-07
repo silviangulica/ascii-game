@@ -10,9 +10,8 @@ void Map::loadMap(int wLevel) {
 }
 
 void Map::clearMap() {
-	// Wait 10 nanoseconds
-	using namespace std::chrono_literals;
-	std::this_thread::sleep_for(1ms);
+	// Wait 1ms
+	sleep(1);
 	
 	COORD mouse_pos{ 0, 0 };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), mouse_pos);
@@ -41,17 +40,56 @@ void Map::startLevel(int level_id, Player &player) {
 
 	while (true) {
 		if (player.checkKeyOnce(VK_RIGHT)) {
+
+			// Colising system
+			sleep(2);
+			if (level.at(level_id)->checkColide(player.coo_i, player.coo_j + 1)) break;
+
+
 			player.coo_j++;
 			level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
 			level.at(level_id)->updateIJ(player.coo_i, player.coo_j - 1, ' ');
 			break;
 		}
 		if (player.checkKey(VK_LEFT)) {
+			// Colising system
+			sleep(2);
+			if (level.at(level_id)->checkColide(player.coo_i, player.coo_j - 1)) break;
+
 			player.coo_j--;
 			level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
 			level.at(level_id)->updateIJ(player.coo_i, player.coo_j + 1, ' ');
 			break;
 		}
+
+		if (player.checkKey(VK_UP)) {
+			// Colising system
+			sleep(2);
+			if (level.at(level_id)->checkColide(player.coo_i - 1, player.coo_j)) break;
+
+			player.coo_i--;
+			level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
+			level.at(level_id)->updateIJ(player.coo_i + 1, player.coo_j, ' ');
+			sleep(2);
+			break;
+		}
+
+		if (player.checkKey(VK_DOWN)) {
+			// Colising system
+			sleep(2);
+			if (level.at(level_id)->checkColide(player.coo_i + 1, player.coo_j)) break;
+
+			player.coo_i++;
+			level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
+			level.at(level_id)->updateIJ(player.coo_i - 1, player.coo_j, ' ');
+			sleep(2);
+			break;
+		}
+		
 	}
 
+}
+
+void Map::sleep(int numeric) {
+	Sleep(numeric);
 }
