@@ -42,48 +42,66 @@ void Map::startLevel(int level_id, Player &player) {
 		if (player.checkKeyOnce(VK_RIGHT)) {
 
 			// Colising system
-			sleep(2);
+			sleep(1);
 			if (level.at(level_id)->checkColide(player.coo_i, player.coo_j + 1)) break;
 
 
-			player.coo_j++;
-			level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
-			level.at(level_id)->updateIJ(player.coo_i, player.coo_j - 1, ' ');
-			break;
+			player.inc_righ += 0.40;
+
+			if (player.inc_righ >= 1) {
+				player.inc_righ = 1 - player.inc_righ;
+				player.coo_j++;
+				level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
+				level.at(level_id)->updateIJ(player.coo_i, player.coo_j - 1, ' ');
+				break;
+			}
+
 		}
 		if (player.checkKey(VK_LEFT)) {
 			// Colising system
-			sleep(2);
+			sleep(1);
 			if (level.at(level_id)->checkColide(player.coo_i, player.coo_j - 1)) break;
 
-			player.coo_j--;
-			level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
-			level.at(level_id)->updateIJ(player.coo_i, player.coo_j + 1, ' ');
-			break;
+			player.inc_left += 0.40;
+			if (player.inc_left >= 1) {
+				player.inc_left = 1 - player.inc_left;
+				player.coo_j--;
+				level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
+				level.at(level_id)->updateIJ(player.coo_i, player.coo_j + 1, ' ');
+				break;
+			}
 		}
 
 		if (player.checkKey(VK_UP)) {
 			// Colising system
-			sleep(2);
+			sleep(1);
 			if (level.at(level_id)->checkColide(player.coo_i - 1, player.coo_j)) break;
 
-			player.coo_i--;
-			level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
-			level.at(level_id)->updateIJ(player.coo_i + 1, player.coo_j, ' ');
-			sleep(2);
-			break;
+			player.inc_up += 0.35;
+			if (player.inc_up >= 1) {
+				player.inc_up = 0;
+				player.coo_i--;
+				level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
+				level.at(level_id)->updateIJ(player.coo_i + 1, player.coo_j, ' ');
+				break;
+			}
 		}
 
 		if (player.checkKey(VK_DOWN)) {
 			// Colising system
-			sleep(2);
+			sleep(1);
 			if (level.at(level_id)->checkColide(player.coo_i + 1, player.coo_j)) break;
 
-			player.coo_i++;
-			level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
-			level.at(level_id)->updateIJ(player.coo_i - 1, player.coo_j, ' ');
-			sleep(2);
-			break;
+			player.inc_down += 0.5;
+
+			if (player.inc_down >= 0) {
+				player.inc_down = 0;
+				player.coo_i++;
+				level.at(level_id)->updateIJ(player.coo_i, player.coo_j, player.form);
+				level.at(level_id)->updateIJ(player.coo_i - 1, player.coo_j, ' ');
+				sleep(1);
+				break;
+			}
 		}
 		
 	}

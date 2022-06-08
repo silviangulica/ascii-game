@@ -11,6 +11,6 @@ public:
 	bool checkColide(int i, int j);
 
 private:
-	char level_stage[9][30] {" "};
+	char level_stage[20][30] {" "};
 };
 

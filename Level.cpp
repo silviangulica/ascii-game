@@ -1,5 +1,6 @@
 #include "Level.h"
 #include <fstream>
+#include <Windows.h>
 
 
 Level::Level(std::string file_name) {
@@ -9,8 +10,27 @@ Level::Level(std::string file_name) {
 
 void Level::loadLevel() {
 	// This will only show the level
+	// And will color with the proper ones
+
+	HANDLE hC = GetStdHandle(STD_OUTPUT_HANDLE);
 	for (auto& x : level_stage) {
 		for (auto y : x) {
+
+			switch (y) {
+			case '1': case '2': case '3': case '4': case '0':
+			case '8': case '5': case '6': case '7': case '9':
+				SetConsoleTextAttribute(hC, 10);
+				break;
+			case '*':
+				SetConsoleTextAttribute(hC, 9);
+				break;
+			case 'M':
+				SetConsoleTextAttribute(hC, 12);
+				break;
+			default:
+				SetConsoleTextAttribute(hC, 15);
+			}
+
 			std::cout << y;
 		}
 		std::cout << "\n";
