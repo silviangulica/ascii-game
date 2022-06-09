@@ -1,1 +1,12 @@
-﻿  ASCII - GAME.vcxproj -> C:\Users\gulic\OneDrive\Desktop\ascii-game\x64\Release\ASCII - GAME.exe
+﻿  ascii-main.cpp
+  Level.cpp
+  Map.cpp
+C:\Users\gulic\Desktop\ascii-game\Map.cpp(49,27): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\gulic\Desktop\ascii-game\Map.cpp(65,27): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\gulic\Desktop\ascii-game\Map.cpp(80,25): warning C4305: '+=': truncation from 'double' to 'float'
+  Player.cpp
+  Generating code
+  Previous IPDB was built with incompatible compiler, fall back to full compilation.
+  All 228 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  ASCII - GAME.vcxproj -> C:\Users\gulic\Desktop\ascii-game\x64\Release\ASCII - GAME.exe

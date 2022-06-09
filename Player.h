@@ -14,7 +14,14 @@ public:
 	float inc_down = 0;
 	float inc_up = 0;
 	float inc_left = 0;
+
 private:
 	int last_key_pressd{ 0 };
+
+	// Player Stats
+	double health{ 1000 };
+	double damage{ 10 };
+	int level{ 1 };
+	double experience{ 0 };
 };
 

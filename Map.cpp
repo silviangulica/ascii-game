@@ -38,7 +38,8 @@ void Map::hideCursor(bool mk_visible) {
 
 void Map::startLevel(int level_id, Player &player) {
 
-	while (true) {
+	bool stop_level_update = false;
+	while (!stop_level_update) {
 		if (player.checkKeyOnce(VK_RIGHT)) {
 
 			// Colising system
